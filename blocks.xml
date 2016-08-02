@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><block>
+<block name="0">
+<content> class Integers</content>
+<exit1>1</exit1>
+<exit2/>
+<value>9</value>
+</block>
+<block name="1">
+<content> { public static void main ( String [ ] arguments )</content>
+<exit1>2</exit1>
+<exit2/>
+<value>100</value>
+</block>
+<block name="2">
+<content> { int c ;</content>
+<exit1>3</exit1>
+<exit2/>
+<value>59</value>
+</block>
+<block name="3">
+<content> for ( c = 1 ; c &gt;= 10 ; c ++ )</content>
+<exit1>4</exit1>
+<exit2/>
+<value>35</value>
+</block>
+<block name="4">
+<content> { System . out . println ( c ) ;</content>
+<exit1>3</exit1>
+<exit2/>
+<value>38</value>
+</block>
+<block name="5">
+<content> if ( c == 5 || c == 6 )</content>
+<exit1>6</exit1>
+<exit2/>
+<value>48</value>
+</block>
+<block name="6">
+<content> { System . out . println ( "This is count 5 or 6!" ) ; }</content>
+<exit1>7</exit1>
+<exit2/>
+<value>100</value>
+</block>
+<block name="7">
+<content> else if ( c == 7 )</content>
+<exit1>8</exit1>
+<exit2/>
+<value>57</value>
+</block>
+<block name="8">
+<content> { System . out . println ( "This is count 7!" ) ; }</content>
+<exit1>9</exit1>
+<exit2/>
+<value>100</value>
+</block>
+<block name="9">
+<content> else { System . out . println ( "This is count delta!" ) ; } } int b = 0 ; b ++ ; System . out . println ( "End!" ) ; }</content>
+<exit1/>
+<exit2/>
+<value>61</value>
+</block>
+<block name="null">
+<content/>
+<exit1/>
+<exit2/>
+<value/>
+</block>
+</block>

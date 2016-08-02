@@ -61,13 +61,30 @@ public class JavaParserTest {
 		String [][] array = expandedCFG.getArray();
 		System.out.println("Printing Array");
 		expandedCFG.printArray(array);
+		
+		//Create Simple CFG*************************************
 		System.out.println("Compressing CFG");
 		String[][] simpleCFG = expandedCFG.constructSimpleCFG(array);
 		System.out.println("Printing simple CFG");
 		expandedCFG.printArray(simpleCFG);
-		System.out.println("Collapsing curly brackets");
-		simpleCFG = expandedCFG.collapseCurlyBracketBlocks(simpleCFG);
-		expandedCFG.printArray(simpleCFG);
+		
+		Block[] table = XMLCreate.Testing(simpleCFG);
+		new CreateNewXML(table, "simple");
+		//Simple CFG Ends***************************************
+		
+		
+		//Create Multiple CFG***********************************
+		String[][] multipleCFG = expandedCFG.constructMultipleCFG(array);
+		System.out.println("Printing multipleCFG");
+		expandedCFG.printArray(multipleCFG);
+		
+		Block[] table2 = XMLCreate.Testing(multipleCFG);
+		new CreateNewXML(table2, "multiple");
+		//Multiple CFG Ends************************************
+		
+		//System.out.println("Collapsing curly brackets");
+		//simpleCFG = expandedCFG.collapseCurlyBracketBlocks(simpleCFG);
+		//expandedCFG.printArray(simpleCFG);
 		//test vals
 		//System.out.println("Testing values of tokens");
 //System.out.println( "ParseTree:\n" + tree.toStringTree( val ) + "\n"); 
