@@ -25,6 +25,8 @@
 import java.util.ArrayList;
 import java.util.List;
  
+
+
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
  
@@ -74,7 +76,7 @@ public class AST {
 	/**
 	 * All child nodes of this AST.
 	 */
-	private final List<AST> children;
+	final List<AST> children;
  
 	public AST(ParseTree tree) {
 		this(null, tree);
@@ -107,6 +109,10 @@ public class AST {
 	public List<AST> getChildren() 
 	{
 		return new ArrayList<>(children);
+	}
+	
+	public List<AST> getChild(){
+		return children;
 	}
  
 	// Determines the payload of this AST: a string in case it's an inner node
@@ -155,6 +161,17 @@ public class AST {
 			}
 		}
 	}
+	public int getTypeFromTokenPayload(Object payload)
+	{
+		
+		if (payload instanceof Token) {
+			Token token = (Token) payload;
+			return token.getType();
+		} else {
+			return -1;
+		}
+	}
+	
 	
 	@Override
 	public String toString() {
@@ -209,6 +226,18 @@ public class AST {
 		}
  
 		return builder.toString();
+	}
+
+	public String getTextFromTokenPayload(Object payload) {
+		String caption;
+		if (payload instanceof Token) {
+			Token token = (Token) payload;
+			caption = String.format("%s",
+					token.getText().replace("\n", "\\n"));
+		} else {
+			caption = String.valueOf(payload);
+		}
+		return caption;
 	}
 	
 }
