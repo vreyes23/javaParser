@@ -112,7 +112,7 @@ public class BlockNode {
 	public boolean isChangeLeaf(String  val,String prev){
 		int value = Integer.valueOf(val);
 		int previous = Integer.valueOf(prev);
-		if ((value == 22)||(value ==15)||(value ==41)||(value ==6)||(value ==21)||(value ==50)||(value ==13)||(value ==11)||(value ==36)||(value ==4)||(value ==47)||(value ==7)||(value ==23)||(value ==44)||(value ==45)||((value==59)&&(previous==22))){
+		if ((value == 22)||(value ==15)||(value ==41)||(value ==6)||(value ==21)||(value ==50)||(value ==13)||(value ==11)||(value ==36)||(value ==4)||(value ==47)||(value ==7)||(value ==23)||(value ==44)||(value ==45)||(value==59)||((value==59)&&(previous==22))){
 			return true;
 		}
 		return false;
@@ -243,9 +243,6 @@ public class BlockNode {
 			index = changeofcontrolindex;
 			}
 		}
-		
-		
-		
 		return simpleCFG;
 		
 		/*
@@ -272,6 +269,29 @@ public class BlockNode {
 	}
 				
 		
+	public String[][] collapseCurlyBracketBlocks(String[][] array){
+		
+		for (int i = 1; i < array.length; i++){
+			if((array[i][0] == String.valueOf(59)) && (array[i-1][0] == String.valueOf(22))){
+				return collapseCurlyBracketBlocks(collapse(array, i));
+			}
+		}
+		return array;
+	}
+	
+	public String[][] collapse(String[][] array, int index){
+		String[][] collapsedarray = new String [array.length-1][4];
+		for (int i = 0; i < collapsedarray.length; i++){
+			if (i < index){
+				collapsedarray[i] = array[i];
+			} else if (i == index){
+				collapsedarray[i-1][1] = collapsedarray[i-1][1] + array[i][1];
+			} else{
+				collapsedarray[i-1] = array[i];
+			}
+		}
+		return collapsedarray;
+	}
 		
 	
 	

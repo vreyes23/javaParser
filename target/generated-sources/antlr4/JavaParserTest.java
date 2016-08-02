@@ -65,7 +65,9 @@ public class JavaParserTest {
 		String[][] simpleCFG = expandedCFG.constructSimpleCFG(array);
 		System.out.println("Printing simple CFG");
 		expandedCFG.printArray(simpleCFG);
-		
+		System.out.println("Collapsing curly brackets");
+		simpleCFG = expandedCFG.collapseCurlyBracketBlocks(simpleCFG);
+		expandedCFG.printArray(simpleCFG);
 		//test vals
 		//System.out.println("Testing values of tokens");
 //System.out.println( "ParseTree:\n" + tree.toStringTree( val ) + "\n"); 
