@@ -4,7 +4,7 @@ class Integers {
  
   /* Using for loop to repeat instruction execution */
  
-    for (c = 1; c <= 10; c++) {
+    for (c = 1; c >= 10; c++) {
       System.out.println(c);
       if (c == 5 || c == 6){
     	  System.out.println("This is count 5 or 6!");
